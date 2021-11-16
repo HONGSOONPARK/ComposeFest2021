@@ -16,6 +16,7 @@
 
 package com.codelabs.state.todo
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -27,11 +28,13 @@ class TodoViewModel : ViewModel() {
 
     fun addItem(item: TodoItem) {
         _todoItems.value = _todoItems.value!! + listOf(item)
+        Log.d("test", _todoItems.value.toString())
     }
 
     fun removeItem(item: TodoItem) {
         _todoItems.value = _todoItems.value!!.toMutableList().also {
             it.remove(item)
+            Log.d("test", item.toString())
         }
     }
 }
